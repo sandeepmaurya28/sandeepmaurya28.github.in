@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carriculam vitae</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<style>
+    .list-group-item:hover{
+        background-color: #13b1b1;
+        color: #fff;
+    }
+    textarea.form-control{
+        height: 72px;
+    }
+    label{
+        color: rgba(82, 86, 88, 0.68);
+    }
+    h3{
+        background-color: #eee;
+        padding: 5px;
+        padding-left: 20px;
+            margin-top: 0px;
+        color:#797777;
+    }
+    #modal{
+        position: absolute;
+        z-index: 500;
+        opacity: 1;
+        background: #8c8a8a;
+        top: 0;
+        width: 1366px;
+        height: 638px;
+        left: -83px;
+    }
+    #modal-body{
+        background-color: #fff;
+        margin: 5%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        overflow: auto;
+        max-height: 580px;
+        opacity:1;
+    }
+    #popup{
+        position: absolute;
+        z-index: 500;
+        opacity: 1;
+        background: #949292;
+        border-radius: 10px;
+        top: 0;
+        width: 1366px;
+        height: 638px;
+        left: -83px;
+    }
+
+    #popupbody{
+
+        background-color: #fff;
+        margin: 15%;
+        padding: 20px;
+        text-align: center;
+    }
+
+
+</style>
+     <div class="container" style="position: relative;">
+         <div class="row">
+             <h2 class="text-center" style="background-color: #13b1b1;padding: 5px;color:#fff;font-family:Menlo">Carriculam Vitae</h2>
+         </div>
+         <div class="row" style="margin-top: 20px;">
+              <div class="col-sm-3">
+                  <ul class="list-group " style="cursor: pointer;">
+                         <li class="list-group-item" value="0">
+                             Basic Information
+                         </li>
+                         <li class="list-group-item" value="1">
+                            Education
+                         </li>
+                       <li class="list-group-item" value="2">
+                           Skills
+                       </li>
+                      <li class="list-group-item" value="3">
+                          Work Experience
+                      </li>
+
+                      <li id="resume" hidden="hidden" class="list-group-item" value="5">
+                          Show CV
+                      </li>
+                  </ul>
+              </div>
+              <div class="col-sm-9">
+
+                   <div  id="basicInfo">
+                       <h3 class="">Basic Information</h3>
+                       <form action="" id="basicInfoForm" class="">
+                          <div class="col-sm-6">
+                              <div class="form-group ">
+                                  <label for="">Full Name</label>
+                                  <input type="text" id ="fullName"name="FullName" placeholder="your full name" class="form-control">
+                              </div>
+                              <div class="form-group ">
+                                  <label for="">Email</label>
+                                  <input type="email" name="Email" id="Email" placeholder="sample@gmail.com" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                  <label for="">Mobile Number</label>
+                                  <input type="NUMBER" id="Mobile" name="Mobile" class="form-control">
+                              </div>
+
+                          </div>
+                           <div class="col-sm-6">
+                               <div class="form-group">
+                                   <label for="">Current Address</label>
+                                   <input id="CurrentAddress" type="textarea" name="CurrentAddress" class="form-control">
+                               </div>
+                               <div class="form-group">
+                                   <label for="">Permanent Address</label>
+                                   <input id="PermanentAddress" type="textarea"  name="PermanentAddress" class="form-control">
+                               </div>
+                               <button class="btn btn-primary " id="basicInfoButton">Save</button>
+                           </div>
+
+                       </form>
+                   </div>
+                   <div  hidden id="educationInfo">
+                       <h3>Educational Records</h3>
+                       <form action="">
+                           <div class="col-sm-6">
+                               <div class="form-group ">
+                                   <label for="">High School Name</label>
+                                   <input placeholder="high school name" id="HighSchoolName" type="text" class="form-control">
+                               </div>
+                               <div class="form-group ">
+                                   <label for="">High School %</label>
+                                   <input placeholder="high school %" id="HighSchoolPercent" type="number" class="form-control">
+                               </div>
+                               <div class="form-group ">
+                                   <label for="">Year of Passing</label>
+                                   <input placeholder="2014-2015" id="HighSchoolYear" type="number" class="form-control">
+                               </div>
+                               <div class="form-group ">
+                                   <label for="">School Address</label>
+                                   <textarea placeholder="Jaunpur,UP" id="HighSchoolAddress" type="textarea" class="form-control"></textarea>
+                               </div>
+                               <div class="form-group ">
+                                   <label for="">Known Languages</label>
+                                   <input id="Language" placeholder="English / Hindi" type="text" class="form-control">
+                               </div>
+
+
+
+                           </div>
+                           <div class="col-sm-6">
+                               <div class="form-group ">
+                                   <label for="">Senior Secondary School Name</label>
+                                   <input placeholder="Senior Secondary school name" id="SSName" type="text" class="form-control">
+                               </div>
+                               <div class="form-group ">
+                                   <label for="">Senior Secondary School %</label>
+                                   <input placeholder="Senior Secondary school %"  id="SSPercent" type="number" class="form-control">
+                               </div>
+                               <div class="form-group ">
+                                   <label for="">Year of Passing</label>
+                                   <input placeholder="2016-2017" type="number" id="SSYear" class="form-control">
+                               </div>
+                               <div class="form-group ">
+                                   <label for="">School Address</label>
+                                   <textarea placeholder="Banglore,Karnataka" id="SSAddress" type="textarea" class="form-control"></textarea>
+                               </div>
+                               <button class="btn  btn-primary" id="SSButton">Save</button>
+                           </div>
+                       </form>
+                   </div>
+                  <div id="skillInfo" hidden>
+                      <h3> Skills</h3>
+                      <form action="" class="col-sm-8">
+                          <div class="form-group">
+                              <label for="">
+                                    Skill no.  1 :
+                              </label>
+                              <input type="text" name="1" id="Skill1" placeholder="skill no. 1" class="form-control">
+                          </div>
+
+                          <div id="newSkills"></div>
+                          <a id ="addMore" class="pull-right " href="#"> + Add More Skill</a><br>
+
+                          <button class="btn  btn-primary" id="SkillButton">Save</button>
+                      </form>
+                  </div>
+                  <div id="workExperience" hidden>
+                      <h3>Work Experience</h3>
+                      <form action="">
+                          <div class="col-sm-8">
+                              <div class="form-group ">
+                                  <label for="">
+                                      Company Name
+                                  </label>
+                                  <input type="text" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                  <label for="">Start Date</label>
+                                  <input type="text" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                  <label for="">End  Date</label>
+                                  <input type="text" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                  <label for="">Descriptions</label>
+                                  <textarea type="textarea" class="form-control"></textarea>
+                              </div>
+                              <div id="newWork"></div>
+                              <a href="#" id="addWork" class="pull-right"> + Add More Work</a> <br>
+                              <button class="btn  btn-primary">Save</button>
+
+
+                          </div>
+                      </form>
+                  </div>
+                   <div id="uploadSection" hidden>
+                       <h3>Upload Your Photo</h3>
+                       <form action="">
+                           <div class="col-sm-8">
+                               <div class="form-group">
+                                   <label for="">Upload Your Photo</label>
+                                   <input type="file" class="form-control">
+                               </div>
+                               <button class="btn  btn-primary" id="uploadPhoto">Save</button>
+                           </div>
+                       </form>
+                   </div>
+                  
+                  
+              </div>
+         </div>
+         <div class="row" id="popup" hidden>
+             <div id="popupbody">
+                         <p>Sorry ! This Submission could not be Done </p>
+                         <p>It could be made more dynamic using PHP ,  Mysql, Ajax and jQuery</p>
+                  <p>Please Click on Show Resume Option to See Resume Sample</p>
+             </div>
+         </div>
+         <div class="row" id="modal" hidden>
+             <button class="btn btn-default pull-right" id="close" style="position: absolute;z-index:1200;    right: 177px;
+    top: 36px;">
+                 Close
+             </button>
+                    <div class="col-sm-offset-1 col-sm-10" id="modal-body">
+
+
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-sm-10" style="margin-top: 3%;margin-bottom: 2%;">
+                                <h3 class="text-center text-uppercase">Carriculam Vitae</h3>
+                                <div class="col-sm-8" style="margin-top: 6%;">
+                                    <label for="" id="">Sandeep Kumar Maurya</label> <br>
+                                    <!--<label>Computer Science && Engineering </label><br>-->
+                                    <label  for="">Email :<span id=""> Sandeepmaurya1072@gmail.com</span>  </label> <br>
+
+                                    <label for="">Mobile No. : <span id="" >8050820549</span></label>
+
+                                    <address id="ResumeCurrentAddress">
+                                        Rupena Aggrahar ,Banglore ,Karnataka
+                                    </address>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <img class="img-circle" src="sandeep.jpg" height="200" width="200" alt="">
+                                </div>
+
+                            </div>
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <h3>Career Objective</h3>
+
+                                <h5 style="padding: 10px;">To work in a firm with a professional work driven environment where I can utilize and apply my knowledge, skills which would enable me as a fresh graduate to grow while fulfilling organizational goals.</h5>
+                            </div>
+                            <div class="col-sm-offset-1 col-sm-10 ">
+                                <h3>Basic Academic Credentials </h3>
+                                   <table class="table table-bordered table-hover">
+                                       <thead>
+                                       <tr>
+                                           <th>Qualification</th>
+                                           <th>School/College/University</th>
+                                           <th>Passing Year </th>
+                                           <th>Percentage</th>
+                                       </tr>
+                                       </thead>
+                                       <tbody id="education">
+                                       <tr>
+                                           <td>High School</td>
+                                           <td id="ResumeHighSchoolName">Jawahar Navodaya Vidyalaya</td>
+                                           <td id="ResumeHighSchoolYear">2009</td>
+                                           <td id="ResumeHighSchoolPercent">91.4</td>
+                                       </tr>
+                                       <tr>
+                                           <td>Senior Secondary School</td>
+                                           <td id="ResumeSSName">Jawahar Navodaya Vidyalaya</td>
+                                           <td id="ResumeSSYear">2011</td>
+                                           <td id="ResumeSSPercent">80</td>
+                                       </tr>
+                                       <tr>
+                                           <td>BTech</td>
+                                           <td id="ResumeSSName">Faculty of Engineering & Technology</td>
+                                           <td id="ResumeSSYear">202-2016</td>
+                                           <td id="ResumeSSPercent">73</td>
+                                       </tr>
+                                       </tbody>
+                                   </table>
+                            </div>
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <h3>Skills</h3>
+                                <ul class="">
+                                    <li class="">	Language                <span style="font-size: 15px;">: C, SQL, JAVA, PHP</span> </li>
+                                    <li>	Other Technologies <span style="font-size: 15px;">: HTML, JavaScript, CSS, Ajax, jQuery, JavaScript, Bootstrap</span> </li>
+                                    <li> 	Framework           <span style="font-size: 15px;">: LARAVEL</span>    </li>
+                                    <li>	VCS                  <span style="font-size: 15px;"> : GIT ( GitHub, BitBucket, SourceTree )</span>        </li>
+                                    <li>    Software             <span style="font-size: 15px;"> : WAMP, PhpStorm, Sublime, Eclipse , NetBeans,</span>      </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <h3>Inter Personal Skills</h3>
+
+                                <ul class="">
+                                    <li class="">Able to build good relationship and set up trust.</li>
+                                    <li>	Confident and  have a positive attitude.</li>
+                                    <li> 	Ability to cope up with different situations.</li>
+
+                                </ul>
+                            </div>
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <h3>Personal Details</h3>
+                                <ul>
+                                    <li>Father’s Name			<span style="font-size: 15px;">:-   Suresh Kumar Maurya</span></li>
+                                    <li>	Permanent Address	<span style="font-size: 15px;">	:-   Saidanpur, Muradganj, Jaunpur ,UP , 222001</span></li>
+                                    <li>Date of Birth    		<span style="font-size: 15px;">	:-   7thAugust 1994</span></li>
+                                    <li>	Language Known	   <span style="font-size: 15px;">       :-   English & Hindi</span></li>
+                                    <li>Marital Status 		<span style="font-size: 15px;">	:-   Single</span></li>
+                                    <li>Nationality/Religion	<span style="font-size: 15px;">	:-   Indian</span></li>
+                                </ul>
+
+                            </div>
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <h3>Declaration </h3>
+                                <p>
+                                    I do hereby declare that all the above information is true to the best of my knowledge.
+                                </p>
+                                <h5 class="pull-right" style="margin-right: 50px;">
+                                    Signature <br><br>
+                                    <span>
+                                         Sandeep Kumar Maurya
+                                    </span>
+                                </h5>   <br>
+
+                            </div>
+                             <div class="col-sm-offset-1 col-sm-10">
+
+                             </div>
+
+                        </div>
+                    </div>
+         </div>
+     </div>
+<script>
+    $(document).ready(function () {
+//              $("#resume").hide();
+         var FullData;
+               $(".list-group-item").on("click",function () {
+                   var value= $(this).val();
+                      if(value==0){
+                          $("#basicInfo").show();
+                          $("#skillInfo").hide();
+                         
+
+                          $("#workExperience").hide();
+                          $(".list-group-item").css({"background-color":"#fff","color":"#333"});
+                          $(this).css({"background-color":"#13b1b1","color":"#fff"})  ;
+                          $("#educationInfo").hide();
+                      }if(value==1){
+                       $("#basicInfo").hide();
+                       $("#skillInfo").hide();
+                      
+
+                       $("#workExperience").hide();
+                       $("#educationInfo").show();
+                       $(".list-group-item").css({"background-color":"#fff","color":"#333"});
+
+                       $(this).css({"background-color":"#13b1b1","color":"#fff"})  ;
+
+                   }
+                   if(value==2){
+                        $("#skillInfo").show();
+                       $("#basicInfo").hide();
+                      
+
+                       $("#workExperience").hide();
+                       $("#educationInfo").hide();
+                       $(".list-group-item").css({"background-color":"#fff","color":"#333"});
+
+                       $(this).css({"background-color":"#13b1b1","color":"#fff"})  ;
+                   }
+                   if (value==3){
+                       $("#workExperience").show();
+                       $("#skillInfo").hide();
+                      
+                       $("#basicInfo").hide();
+                       $("#educationInfo").hide();
+                       $(".list-group-item").css({"background-color":"#fff","color":"#333"});
+
+                       $(this).css({"background-color":"#13b1b1","color":"#fff"})  ;
+                       $("#resume").show();
+                   }
+                 
+                   if(value==5){
+
+                       $("#modal").show();
+                       $(".list-group-item").css({"background-color":"#fff","color":"#333"});
+
+                       $(this).css({"background-color":"#13b1b1","color":"#fff"})  ;
+                   }
+               });
+        var counter=2;
+        $("#addMore").on("click",function () {
+                 var div="<div class='form-group'>" +
+                                 "<label>Skill no. "+counter+"</label>"+
+                                 "<input type='text' name='"+counter+"' id='Skill"+counter+"' class='form-control'>"+
+                         "</div>";
+            counter++;
+            $("#newSkills").append(div);
+        });
+        $("#addWork").on("click",function () {
+             var div=' <hr> <div class="form-group "> '+
+                    '<label for="">  '+
+                   ' Company Name'+
+           ' </label> '+
+           ' <input type="text" class="form-control">'+
+                   ' </div> '+
+                   ' <div class="form-group">'+
+                    '<label for="">Start Date</label> '+
+           ' <input type="text" class="form-control">'+
+                   ' </div>  '+
+                   ' <div class="form-group"> '+
+                   ' <label for="">End  Date</label>'+
+           ' <input type="text" class="form-control"> '+
+                   ' </div>    '+
+                    '<div class="form-group">  '+
+                    '<label for="">Descriptions</label> '+
+                   ' <textarea type="textarea" class="form-control"></textarea>'+
+                    '</div>';
+            $("#newWork").append(div);
+        });
+       
+        $(".btn-primary").on("click",function (e) {
+            e.preventDefault();
+               $("#popup").show();
+
+        });
+        $("#close").on("click",function () {
+            $("#modal").hide();
+        });
+        $("#popup").on("click",function () {
+                $("#popup").hide();
+        });
+        $("#popupbody").on("click",function () {
+
+        });
+
+    });
+</script>
+</body>
+</html>
